@@ -14,15 +14,15 @@ module.exports = function(app) {
       where: {
         category: req.params.category
       }
-    }).then(function(dbPost) {
-      res.json(dbPost);
+    }).then(function(dbCat) {
+      res.json(dbCat);
     });
   });
 
   // Create a new example
   app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+    db.Example.create(req.body).then(function(dbCreate) {
+      res.json(dbCreate);
     });
   });
 
@@ -41,8 +41,8 @@ module.exports = function(app) {
       where: {
         id: req.body.id
       }
-    }).then(function(dbExample) {
-      res.json(dbExample);
+    }).then(function(dbUpdate) {
+      res.json(dbUpdate);
     });
   });
 };
