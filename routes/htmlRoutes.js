@@ -45,6 +45,29 @@ module.exports = function(app) {
   // redirected to the signup page
   app.get("/members", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/members.html"));
+
+  app.get("/newsnippet", function(req, res) {
+    db.Example.findAll({}).then(function(dbExamples) {
+      res.render("newsnippet", {
+        examples: dbExamples
+      });
+    });
+  });
+
+  app.get("/newcategory", function(req, res) {
+    db.Example.findAll({}).then(function(dbExamples) {
+      res.render("newcategory", {
+        examples: dbExamples
+      });
+    });
+  });
+
+  app.get("/newtag", function(req, res) {
+    db.Example.findAll({}).then(function(dbExamples) {
+      res.render("newtag", {
+        examples: dbExamples
+      });
+    });
   });
 
   // Load example page and pass in an example by id
@@ -53,7 +76,7 @@ module.exports = function(app) {
       dbExample
     ) {
       res.render("example", {
-        example: dbExample
+        example: dbExamples
       });
     });
   });
