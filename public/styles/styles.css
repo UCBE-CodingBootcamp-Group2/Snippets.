@@ -2,6 +2,11 @@
   line-height: 2.5;
 }
 
+form.signup,
+form.login {
+  margin-top: 50px;
+}
+
 html,
 body {
   height: 100%;
@@ -62,3 +67,4 @@ a:hover {
   top: 0;
   width: 100%;
 }
+
