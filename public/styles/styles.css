@@ -6,3 +6,65 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+
+html,
+body {
+  height: 100%;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.gbackground {
+  background: #606c88; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #606c88,
+    #3f4c6b
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #606c88,
+    #3f4c6b
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#greeting {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.roboto {
+  font-family: "Roboto", sans-serif;
+}
+
+.add-buttons {
+  font-family: "Roboto", sans-serif;
+}
+
+.c-button {
+  color: #6c757d;
+  background-color: #ffffff;
+  border-color: #6c757d;
+}
+
+.u-button {
+  color: #8B008B;
+  background-color: #ffffff;
+  border-color: #8B008B;
+}
+
+#navbar {
+  overflow: hidden;
+  background-color: #333;
+  z-index: 2000;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
