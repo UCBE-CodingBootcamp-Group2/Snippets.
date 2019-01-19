@@ -68,3 +68,16 @@ a:hover {
   width: 100%;
 }
 
+.modal-content {
+  border-radius: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.modal-header {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+#categoryName {
+  font-weight: normal;
+}
