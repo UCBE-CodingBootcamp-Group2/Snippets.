@@ -37,7 +37,8 @@ module.exports = function(app) {
     // If the user already has an account send them to the members page
     if (req.user) {
       res.redirect("/members");
-    } res.sendFile(path.join(__dirname, "../public/login.html"));
+    }
+    res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 
   // Here we've add our isAuthenticated middleware to this route.
@@ -46,43 +47,44 @@ module.exports = function(app) {
   app.get("/members", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/members.html"));
 
-  app.get("/newsnippet", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.render("newsnippet", {
-        examples: dbExamples
+    app.get("/newsnippet", function(req, res) {
+      db.Example.findAll({}).then(function(dbExamples) {
+        res.render("newsnippet", {
+          examples: dbExamples
+        });
       });
     });
-  });
 
-  app.get("/newcategory", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.render("newcategory", {
-        examples: dbExamples
+    app.get("/newcategory", function(req, res) {
+      db.Example.findAll({}).then(function(dbExamples) {
+        res.render("newcategory", {
+          examples: dbExamples
+        });
       });
     });
-  });
 
-  app.get("/newtag", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.render("newtag", {
-        examples: dbExamples
+    app.get("/newtag", function(req, res) {
+      db.Example.findAll({}).then(function(dbExamples) {
+        res.render("newtag", {
+          examples: dbExamples
+        });
       });
     });
-  });
 
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(
-      dbExample
-    ) {
-      res.render("example", {
-        example: dbExamples
+    // Load example page and pass in an example by id
+    app.get("/example/:id", function(req, res) {
+      db.Example.findOne({ where: { id: req.params.id } }).then(function(
+        dbExample
+      ) {
+        res.render("example", {
+          example: dbExamples
+        });
       });
     });
-  });
 
-  // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
-    res.render("404");
+    // Render 404 page for any unmatched routes
+    app.get("*", function(req, res) {
+      res.render("404");
+    });
   });
 };
