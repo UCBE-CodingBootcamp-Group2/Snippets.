@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "exampledb",
+    "password": "3db88op#0^1H",
+    "database": "snippetdb",
     "host": "localhost",
     "dialect": "mysql"
   },

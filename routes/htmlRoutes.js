@@ -25,10 +25,10 @@ module.exports = function(app) {
 
   // Load index page
   app.get("/home", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+    db.Snippet.findAll({}).then(function(dbSnippets) {
       res.render("index", {
         msg: "Welcome!",
-        examples: dbExamples
+        snippets: dbSnippets
       });
     });
   });
@@ -46,29 +46,29 @@ module.exports = function(app) {
   // redirected to the signup page
   app.get("/members", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/members.html"));
+  });
 
-    app.get("/newsnippet", function(req, res) {
-      db.Example.findAll({}).then(function(dbExamples) {
-        res.render("newsnippet", {
-          examples: dbExamples
-        });
+  app.get("/newsnippet", function(req, res) {
+    db.Snippet.findAll({}).then(function(dbSnippets) {
+      res.render("newsnippet", {
+        snippets: dbSnippets
       });
     });
+  });
 
-    // Load example page and pass in an example by id
-    app.get("/example/:id", function(req, res) {
-      db.Example.findOne({ where: { id: req.params.id } }).then(function(
-        dbExamples
-      ) {
-        res.render("example", {
-          example: dbExamples
-        });
+  // Load snippet page and pass in an snippet by id
+  app.get("/snippet/:id", function(req, res) {
+    db.Snippet.findOne({ where: { id: req.params.id } }).then(function(
+      dbSnippets
+    ) {
+      res.render("snippet", {
+        snippet: dbSnippets
       });
     });
+  });
 
-    // Render 404 page for any unmatched routes
-    app.get("*", function(req, res) {
-      res.render("404");
-    });
+  // Render 404 page for any unmatched routes
+  app.get("*", function(req, res) {
+    res.render("404");
   });
 };
