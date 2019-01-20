@@ -68,14 +68,23 @@ a:hover {
   width: 100%;
 }
 
+.mod-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+}
+
 .modal-content {
   border-radius: 0;
   font-family: "Roboto", sans-serif;
+  background-color: #f2f2f2;
 }
 
 .modal-header {
   border-bottom: none;
-  padding-bottom: 0;
+  padding: .5rem;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  background-color: #ffffff;
 }
 
 #categoryName {
