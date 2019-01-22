@@ -7,6 +7,10 @@ var $snippetCategory = $("#snippet-category");
 var $submitBtn = $("#submit");
 var $snippetList = $("#snippet-list");
 
+jQuery.fn.prettify = function() {
+  this.html(prettyPrintOne(this.html()));
+};
+
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveSnippet: function(snippet) {
