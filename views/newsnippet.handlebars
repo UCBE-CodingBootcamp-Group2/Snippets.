@@ -1,28 +1,144 @@
-<div id="home">
+<div class="my-4">
+
+  <div class="container border bg-light shadow-sm p-5">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="mod-title">Create a New Snippet</h1>
+        <form class="clearfix mb-4" action="POST">
+          {{!-- Title --}}
+          <div class="form-group">
+            <label for="snippet-title" class="roboto">Title</label>
+            <input type="title" id="snippet-title" class="form-control rounded-0" aria-describedby="snippet-title"
+              placeholder="Enter Snippet Title">
+          </div>
+          {{!-- Category --}}
+          <div class="form-group">
+            <label for="snippet-category" class="roboto mr-4">Category</label>
+
+            {{!-- Dropdown --}}
+            <div class="form-inline">
+              <div class="dropdown mr-4">
+                <button class="btn dropdown-toggle rounded-0" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Uncategorized
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  {{!-- Loop through categories --}}
+                  <a class="dropdown-item" href="#">Action</a>
+                </div>
+              </div>
+              {{!-- end Dropdown --}}
+
+              <button type="button" class="btn btn-outline-info add-buttons rounded-0" data-toggle="modal" data-target="#newCategory"><i
+                  class="fas fa-plus"></i>&nbsp;&nbsp;New Category</button>
+              {{!-- Modal --}}
+              <div class="modal fade" id="newCategory" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <h2 class="mod-title pb-3">Create a New Category</h2>
+                      {{!-- form --}}
+                      <div class="container-fluid text-center">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <form>
+                              <div class="form-group row">
+                                <label for="tag" class="col-md-3 col-form-label">Category Name</label>
+                                <input type="text" class="form-control col-md-7 rounded-0" id="categoryName">
+                                <button type="submit" class="btn btn-info col-md-2 rounded-0" id="createCategory">Create</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                      {{!-- form end --}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {{!-- end modal --}}
+            </div>
+          </div>
+
+          {{!-- Tag --}}
+          <div class="form-group">
+            <label for="snippet-tag" class="roboto">Tag</label>
+            <div class="form-inline">
+              {{!-- Dropdown --}}
+              <div class="dropdown mr-4">
+                <button class="btn dropdown-toggle rounded-0" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  No Tags
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  {{!-- Loop through tags --}}
+                  <a class="dropdown-item" href="#">Action</a>
+                </div>
+              </div>
+              {{!-- end Dropdown --}}
+              <button type="button" class="btn btn-outline-info add-buttons rounded-0" data-toggle="modal" data-target="#newTag"><i
+                  class="fas fa-plus"></i>&nbsp;&nbsp;New Tag</button>
+              {{!-- Modal --}}
+              <div class="modal fade" id="newTag" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <h2 class="mod-title pb-3">Create a New Tag</h2>
+                      {{!-- form --}}
+                      <div class="container-fluid text-center">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <form>
+                              <div class="form-group row">
+                                <label for="tag" class="col-md-2 col-form-label">Tag Name</label>
+                                <input type="text" class="form-control col-md-8 rounded-0" id="tagName">
+                                <button type="submit" class="btn btn-info col-md-2 rounded-0" id="createTag">Create</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                      {{!-- form end --}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {{!-- end Modal --}}
+            </div>
+          </div>
+
+          {{!-- Code --}}
+          <div class="form-group">
+            <label for="snippet-code" class="roboto">Code</label>
+            <textarea class="form-control rounded-0" id="snippet-code" aria-describedby="snippet-code" placeholder="Enter Code Snippet"></textarea>
+          </div>
+
+          {{!-- Comment --}}
+          <div class="form-group">
+            <label for="snippet-comment" class="roboto">Comment</label>
+            <textarea class="form-control rounded-0" id="snippet-comment" aria-describedby="snippet-comment"
+              placeholder="Enter comment"></textarea>
+          </div>
+
+          <button id="createSnippet" class="btn btn-info float-right roboto">Create</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <div class="container">
     <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>Create a new snippet!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="snippet-title">Title</label>
-            <input type="title" id="snippet-title" class="form-control" aria-describedby="snippet-title" placeholder="Enter Snippet Title">
-          </div>
-          <div class="form-group">
-            <label for="snippet-code">Code</label>
-            <textarea class="form-control" id="snippet-code" aria-describedby="snippet-code" placeholder="Enter Code Snippet"></textarea>
-          </div>
-          <div class="form-group">
-            <label for="snippet-comment">Comment</label>
-            <textarea class="form-control" id="snippet-comment" aria-describedby="snippet-comment" placeholder="Enter comment"></textarea>
-          </div>
-           <div class="form-group">
-            <label for="snippet-category">Category</label>
-            <textarea class="form-control" id="snippet-category" aria-describedby="snippet-category" placeholder="Enter category"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
+      <div class="col-12">
         <h3>Snippets:</h3>
         <ul id="snippet-list" class="list-group">
           {{#each snippets}}
@@ -36,6 +152,7 @@
     </div>
   </div>
 </div>
+
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
