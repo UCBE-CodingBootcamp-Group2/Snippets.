@@ -1,7 +1,9 @@
 // Get references to page elements
 var $snippetTitle = $("#snippet-title");
 var $snippetCode = $("#snippet-code");
-var $snippetComment = $("snippet-comment");
+var $snippetComment = $("#snippet-comment");
+var $snippetCategory = $("#snippet-category");
+
 var $submitBtn = $("#submit");
 var $snippetList = $("#snippet-list");
 
@@ -68,11 +70,12 @@ var handleFormSubmit = function(event) {
   var snippet = {
     title: $snippetTitle.val().trim(),
     code: $snippetCode.val().trim(),
-    comment: $snippetComment.val().trim()
+    comment: $snippetComment.val().trim(),
+    category: $snippetCategory.val().trim()
   };
 
-  if (!(snippet.title && snippet.code && snippet.comment)) {
-    alert("You must enter a snippet title, code, and comment!");
+  if (!(snippet.title && snippet.code && snippet.comment && snippet.category)) {
+    alert("You must input something into all fields!");
     return;
   }
 
@@ -83,6 +86,7 @@ var handleFormSubmit = function(event) {
   $snippetTitle.val("");
   $snippetCode.val("");
   $snippetComment.val("");
+  $snippetCategory.val("");
 };
 
 // handleDeleteBtnClick is called when an snippet's delete button is clicked
