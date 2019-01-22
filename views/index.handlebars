@@ -9,7 +9,6 @@
               <h1 class="display-3" id="greeting">Look up or add a snippet:</h1>
             </div>
           </div>
-
           {{!-- insert rows: row 1, search bar with dropdown --}}
           <div class="row">
             <form class="col-md-12">
@@ -56,10 +55,10 @@
                         <span aria-hidden="true"><i class="fas fa-times"></i></span>
                       </button>
                     </div>
-                    <div class="modal-body text-center">
+                    <div class="modal-body">
                       <h2 class="mod-title pb-3">Create a New Category</h2>
                       {{!-- form --}}
-                      <div class="container-fluid">
+                      <div class="container-fluid text-center">
                         <div class="row">
                           <div class="col-md-12">
                             <form>
@@ -92,9 +91,9 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                      <h2 class="mod-title pb-3 text-center">Create a New Tag</h2>
+                      <h2 class="mod-title pb-3">Create a New Tag</h2>
                       {{!-- form --}}
-                      <div class="container-fluid">
+                      <div class="container-fluid text-center">
                         <div class="row">
                           <div class="col-md-12">
                             <form>
@@ -124,19 +123,7 @@
       <div class="row">
         <div class="col-md-10" id="snippets">
           {{!-- card example, want handlebars to loop thru for this--}}
-          {{!-- <div class="card border-secondary mb-3 rounded-0">
-            <div class="card-header">
-              <button type="button" class="btn btn-sm c-button" disabled>Sequalize</button>
-              <ul class="list-inline float-right m-0">
-                <li class="list-inline-item"><button class="btn btn-secondary btn-sm rounded-0">Update</button></li>
-                <li class="list-inline-item"><button class="btn btn-danger btn-sm rounded-0"><i class="fas fa-times"></i></button></li>
-              </ul>
-            </div>
-            <div class="card-body text-secondary">
-              <h5 class="card-title">Note about the snippet or title</h5>
-              <p class="card-text">https://www.youtube.com/watch?v=QmFu_Z_1Dl0&t=42s</p>
-            </div>
-          </div>
+          {{!--
           <div class="card border-secondary mb-3 rounded-0">
             <div class="card-header">
               <button type="button" class="btn btn-sm c-button" disabled>Sequalize</button>
@@ -150,38 +137,26 @@
               <p class="card-text">https://www.youtube.com/watch?v=QmFu_Z_1Dl0&t=42s</p>
             </div>
           </div>
-          <div class="card border-secondary mb-3 rounded-0">
-            <div class="card-header">
-              <button type="button" class="btn btn-sm c-button" disabled>Sequalize</button>
-              <ul class="list-inline float-right m-0">
-                <li class="list-inline-item"><button class="btn btn-secondary btn-sm rounded-0">Update</button></li>
-                <li class="list-inline-item"><button class="btn btn-danger btn-sm rounded-0"><i class="fas fa-times"></i></button></li>
-              </ul>
+          --}}
+          <ul id="snippet-list" class="list-group">
+            {{#each snippets}}
+            <div class="card border-secondary mb-3 rounded-0">
+              <div class="card-header">
+                <button type="button" class="btn btn-sm c-button" disabled>Sequalize</button>
+                <ul class="list-inline float-right m-0">
+                  <li class="list-inline-item"><button class="btn btn-secondary btn-sm rounded-0">Update</button></li>
+                  <li class="list-inline-item"><button class="btn btn-danger btn-sm rounded-0"><i class="fas fa-times"></i></button></li>
+                </ul>
+              </div>
+              <div class="card-body text-secondary">
+                <h5 class="card-title">
+                  <a href="snippet/{{this.id}}">{{this.title}}</a>
+                </h5>
+                <pre class="prettyprint">{{this.code}}</pre>
+              </div>
             </div>
-            <div class="card-body text-secondary">
-              <h5 class="card-title">Note about the snippet or title</h5>
-              <p class="card-text">https://www.youtube.com/watch?v=QmFu_Z_1Dl0&t=42s</p>
-            </div>
-          </div> --}}
-        <ul id="snippet-list" class="list-group">
-          {{#each snippets}}
-          <div class="card border-secondary mb-3 rounded-0">
-            <div class="card-header">
-              <button type="button" class="btn btn-sm c-button" disabled>Sequalize</button>
-              <ul class="list-inline float-right m-0">
-                <li class="list-inline-item"><button class="btn btn-secondary btn-sm rounded-0">Update</button></li>
-                <li class="list-inline-item"><button class="btn btn-danger btn-sm rounded-0"><i class="fas fa-times"></i></button></li>
-              </ul>
-            </div>
-            <div class="card-body text-secondary">
-              <h5 class="card-title">
-                <a href="snippet/{{this.id}}">{{this.title}}</a>
-              </h5>
-              <pre class="prettyprint">{{this.code}}</pre>
-            </div>
-          </div>
-          {{/each}}
-        </ul>
+            {{/each}}
+          </ul>
           {{!-- end examples --}}
 
         </div>

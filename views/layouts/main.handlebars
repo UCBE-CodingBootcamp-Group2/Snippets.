@@ -30,7 +30,7 @@
 
 <body>
   {{!-- Navigation --}}
-  <nav class="navbar navbar-light bg-light border-bottom" id="navbar">
+  <nav class="navbar navbar-light bg-light border-bottom shadow" id="navbar">
     <a class="navbar-brand" href="/">
       <img src="/imgs/Snippetslogo.png" class="d-inline-block align-top" alt="Snippets.">
     </a>
@@ -42,13 +42,13 @@
   {{{body}}}
 
   <script>
-    window.onscroll = function () { myFunction() };
+    window.onscroll = function () { navScroll() };
 
     var navbar = document.getElementById("navbar");
     var sticky = navbar.offsetTop;
 
-    function myFunction() {
-      if (window.pageYOffset >= sticky) {
+    function navScroll() {
+      if (window.pageYOffset > 0.0) {
         navbar.classList.add("sticky")
       } else {
         navbar.classList.remove("sticky");

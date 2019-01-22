@@ -59,18 +59,19 @@ a:hover {
 #navbar {
   overflow: hidden;
   background-color: #333;
-  z-index: 2000;
 }
 
 .sticky {
   position: fixed;
   top: 0;
+  z-index: 2000;
   width: 100%;
 }
 
 .mod-title {
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
+  text-align: center!important;
 }
 
 .modal-content {
