@@ -124,7 +124,7 @@
       <div class="row">
         <div class="col-md-10" id="snippets">
           {{!-- card example, want handlebars to loop thru for this--}}
-          <div class="card border-secondary mb-3 rounded-0">
+          {{!-- <div class="card border-secondary mb-3 rounded-0">
             <div class="card-header">
               <button type="button" class="btn btn-sm c-button" disabled>Sequalize</button>
               <ul class="list-inline float-right m-0">
@@ -162,8 +162,26 @@
               <h5 class="card-title">Note about the snippet or title</h5>
               <p class="card-text">https://www.youtube.com/watch?v=QmFu_Z_1Dl0&t=42s</p>
             </div>
+          </div> --}}
+        <ul id="snippet-list" class="list-group">
+          {{#each snippets}}
+          <div class="card border-secondary mb-3 rounded-0">
+            <div class="card-header">
+              <button type="button" class="btn btn-sm c-button" disabled>Sequalize</button>
+              <ul class="list-inline float-right m-0">
+                <li class="list-inline-item"><button class="btn btn-secondary btn-sm rounded-0">Update</button></li>
+                <li class="list-inline-item"><button class="btn btn-danger btn-sm rounded-0"><i class="fas fa-times"></i></button></li>
+              </ul>
+            </div>
+            <div class="card-body text-secondary">
+              <h5 class="card-title">
+                <a href="snippet/{{this.id}}">{{this.title}}</a>
+              </h5>
+              <code>{{this.code}}</code>
+            </div>
           </div>
-
+          {{/each}}
+        </ul>
           {{!-- end examples --}}
 
         </div>
