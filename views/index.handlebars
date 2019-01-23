@@ -55,9 +55,9 @@
   <div class="main-body mt-4">
     <div class="container">
       <div class="row">
-        <div class="col-md-10" id="snippets">
+        <div class="col-md-12" id="snippets">
           {{!-- card example, want handlebars to loop thru for this--}}
-          {{!--
+          {{!-- 
           <div class="card border-secondary mb-3 rounded-0">
             <div class="card-header">
               <button type="button" class="btn btn-sm c-button" disabled>Sequalize</button>
@@ -71,7 +71,9 @@
               <p class="card-text">https://www.youtube.com/watch?v=QmFu_Z_1Dl0&t=42s</p>
             </div>
           </div>
-          --}}
+           --}}
+          {{!-- end examples --}}
+
           <ul id="snippet-list" class="list-group">
             {{#each snippets}}
             <div class="card border-secondary mb-3 rounded-0">
@@ -91,11 +93,8 @@
             </div>
             {{/each}}
           </ul>
-          {{!-- end examples --}}
 
         </div>
-
-        <div class="col-md-2" id="tags" style="background-color:aqua">column for tags</div>
       </div>
     </div>
   </div>
