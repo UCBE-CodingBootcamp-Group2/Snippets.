@@ -39,79 +39,13 @@
           </div>
           {{!-- row 2 buttons with adding new snippets --}}
           <div class="row mt-3">
-            <div class="col-md-4"><a href="/newsnippet">
+            <div class="col-md-6"><a href="/newsnippet">
                 <button type="button" class="btn btn-info btn-lg btn-block add-buttons"><i class="fas fa-plus"></i>&nbsp;&nbsp;New
                   Snippet</button></a>
             </div>
-            <div class="col-md-4">
-              <button type="button" class="btn btn-info btn-lg btn-block add-buttons" data-toggle="modal" data-target="#newCategory"><i
-                  class="fas fa-plus"></i>&nbsp;&nbsp;New Category</button>
-              {{!-- Modal --}}
-              <div class="modal fade" id="newCategory" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true"><i class="fas fa-times"></i></span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <h2 class="mod-title pb-3">Create a New Category</h2>
-                      {{!-- form --}}
-                      <div class="container-fluid text-center">
-                        <div class="row">
-                          <div class="col-md-12">
-                            <form>
-                              <div class="form-group row">
-                                <label for="tag" class="col-md-3 col-form-label">Category Name</label>
-                                <input type="text" class="form-control col-md-7 rounded-0" id="categoryName">
-                                <button type="submit" class="btn btn-info col-md-2 rounded-0" id="createCategory">Create</button>
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                      {{!-- form end --}}
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {{!-- end modal --}}
-            </div>
-            <div class="col-md-4">
-              <button type="button" class="btn btn-info btn-lg btn-block add-buttons" data-toggle="modal" data-target="#newTag"><i
-                  class="fas fa-plus"></i>&nbsp;&nbsp;New Tag</button>
-              {{!-- Modal --}}
-              <div class="modal fade" id="newTag" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true"><i class="fas fa-times"></i></span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <h2 class="mod-title pb-3">Create a New Tag</h2>
-                      {{!-- form --}}
-                      <div class="container-fluid text-center">
-                        <div class="row">
-                          <div class="col-md-12">
-                            <form>
-                              <div class="form-group row">
-                                <label for="tag" class="col-md-2 col-form-label">Tag Name</label>
-                                <input type="text" class="form-control col-md-8 rounded-0" id="tagName">
-                                <button type="submit" class="btn btn-info col-md-2 rounded-0" id="createTag">Create</button>
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                      {{!-- form end --}}
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {{!-- end modal --}}
+            <div class="col-md-6"><a href="/categories">
+              <button type="button" class="btn btn-info btn-lg btn-block add-buttons" data-toggle="modal" data-target="#newCategory"><i class="far fa-edit"></i>&nbsp;&nbsp;Edit Categories</button>
+              </a>
             </div>
           </div>
         </div>
@@ -121,9 +55,9 @@
   <div class="main-body mt-4">
     <div class="container">
       <div class="row">
-        <div class="col-md-10" id="snippets">
+        <div class="col-md-12" id="snippets">
           {{!-- card example, want handlebars to loop thru for this--}}
-          {{!--
+          {{!-- 
           <div class="card border-secondary mb-3 rounded-0">
             <div class="card-header">
               <button type="button" class="btn btn-sm c-button" disabled>Sequalize</button>
@@ -137,7 +71,9 @@
               <p class="card-text">https://www.youtube.com/watch?v=QmFu_Z_1Dl0&t=42s</p>
             </div>
           </div>
-          --}}
+           --}}
+          {{!-- end examples --}}
+
           <ul id="snippet-list" class="list-group">
             {{#each snippets}}
             <div class="card border-secondary mb-3 rounded-0">
@@ -157,11 +93,8 @@
             </div>
             {{/each}}
           </ul>
-          {{!-- end examples --}}
 
         </div>
-
-        <div class="col-md-2" id="tags" style="background-color:aqua">column for tags</div>
       </div>
     </div>
   </div>

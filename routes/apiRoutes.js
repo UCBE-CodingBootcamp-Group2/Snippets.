@@ -55,12 +55,12 @@ module.exports = function(app) {
 
   // Get route for returning posts of a specific category
   app.get("/api/snippets/category/:category", function(req, res) {
-    db.Post.findAll({
+    db.Snippet.findAll({
       where: {
         category: req.params.category
       }
-    }).then(function(dbCat) {
-      res.json(dbCat);
+    }).then(function(dbSnippet) {
+      res.json(dbSnippet);
     });
   });
 
