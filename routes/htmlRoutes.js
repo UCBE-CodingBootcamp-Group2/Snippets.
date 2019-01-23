@@ -23,16 +23,6 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/signup.html"));
   });
 
-  // Load index page
-  app.get("/home", function(req, res) {
-    db.Snippet.findAll({}).then(function(dbSnippets) {
-      res.render("index", {
-        msg: "Welcome!",
-        snippets: dbSnippets
-      });
-    });
-  });
-
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
@@ -44,16 +34,18 @@ module.exports = function(app) {
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be
   // redirected to the signup page
+
+  // Load index page if authenticated
   app.get("/home", isAuthenticated, function(req, res) {
-    res.redirect("/home");
+    res.render("index");
   });
 
-  app.get("/newsnippet", function(req, res) {
-    db.Snippet.findAll({}).then(function(dbSnippets) {
-      res.render("newsnippet", {
-        snippets: dbSnippets
-      });
-    });
+  app.get("/newsnippet", isAuthenticated, function(req, res) {
+    res.render("newsnippet");
+  });
+
+  app.get("/categories", isAuthenticated, function(req, res) {
+    res.render("categories");
   });
 
   // Load snippet page and pass in an snippet by id
