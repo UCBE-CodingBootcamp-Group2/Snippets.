@@ -91,3 +91,7 @@ a:hover {
 #categoryName {
   font-weight: normal;
 }
+
+.custom-select {
+  height: calc(2.875rem + 2px);
+}
