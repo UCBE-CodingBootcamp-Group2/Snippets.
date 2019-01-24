@@ -37,11 +37,19 @@ module.exports = function(app) {
 
   // Load index page if authenticated
   app.get("/home", isAuthenticated, function(req, res) {
-    res.render("index");
+    db.Snippet.findAll({}).then(function(dbSnippets) {
+      res.render("index", {
+        snippets: dbSnippets
+      });
+    });
   });
 
   app.get("/newsnippet", isAuthenticated, function(req, res) {
-    res.render("newsnippet");
+    db.Snippet.findAll({}).then(function(dbSnippets) {
+      res.render("newsnippet", {
+        snippets: dbSnippets
+      });
+    });
   });
 
   app.get("/categories", isAuthenticated, function(req, res) {
