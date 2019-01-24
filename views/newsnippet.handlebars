@@ -15,91 +15,58 @@
           <div class="form-group">
             <label for="snippet-category" class="roboto mr-4">Category</label>
 
-            {{!-- Dropdown --}}
-            <div class="form-inline">
-              <div class="dropdown mr-4">
-                <button class="btn dropdown-toggle rounded-0" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
-                  Uncategorized
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  {{!-- Loop through categories --}}
-                  <a class="dropdown-item" href="#">Action</a>
-                </div>
-              </div>
-              {{!-- end Dropdown --}}
-
-              <button type="button" class="btn btn-outline-info add-buttons rounded-0" data-toggle="modal" data-target="#newCategory"><i
-                  class="fas fa-plus"></i>&nbsp;&nbsp;New Category</button>
-              {{!-- Modal --}}
-              <div class="modal fade" id="newCategory" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true"><i class="fas fa-times"></i></span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <h2 class="mod-title pb-3">Create a New Category</h2>
-                      {{!-- form --}}
-                      <div class="container-fluid text-center">
-                        <div class="row">
-                          <div class="col-md-12">
-                            <form>
-                              <div class="form-group row">
-                                <label for="tag" class="col-md-3 col-form-label">Category Name</label>
-                                <input type="text" class="form-control col-md-7 rounded-0" id="categoryName">
-                                <button type="submit" class="btn btn-info col-md-2 rounded-0" id="createCategory">Create</button>
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                      {{!-- form end --}}
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {{!-- end modal --}}
-            </div>
+            <select class="custom-select" id="snippet-category">
+              <option selected value="">Uncategorized</option>
+              <option value="HTML">HTML</option>
+              <option value="CSS">CSS</option>
+              <option value="Javascript">Javascript</option>
+              <option value="jQuery">jQuery</option>
+              <option value="Node">Node</option>
+              <option value="SQL">SQL</option>
+              <option value="Express">Express</option>
+              <option value="Handlebars">Handlebars</option>
+              <option value="Sequalize">Sequalize</option>
+            </select>
           </div>
 
-          {{!-- Code --}}
-          <div class="form-group">
-            <label for="snippet-code" class="roboto">Code</label>
-            <textarea class="form-control rounded-0" id="snippet-code" aria-describedby="snippet-code" placeholder="Enter Code Snippet" style="height: 275px;"></textarea>
-          </div>
-
-          {{!-- Comment --}}
-          <div class="form-group">
-            <label for="snippet-comment" class="roboto">Comment</label>
-            <textarea class="form-control rounded-0" id="snippet-comment" aria-describedby="snippet-comment"
-              placeholder="Enter comment"></textarea>
-          </div>
-
-          <button id="createSnippet" class="btn btn-info float-right roboto">Create</button>
-        </form>
+</div>
       </div>
+
+      {{!-- Code --}}
+      <div class="form-group">
+        <label for="snippet-code" class="roboto">Code</label>
+        <textarea class="form-control rounded-0" id="snippet-code" aria-describedby="snippet-code" placeholder="Enter Code Snippet"
+          style="height: 275px;"></textarea>
+      </div>
+
+      {{!-- Comment --}}
+      <div class="form-group">
+        <label for="snippet-comment" class="roboto">Comment</label>
+        <textarea class="form-control rounded-0" id="snippet-comment" aria-describedby="snippet-comment" placeholder="Enter comment"></textarea>
+      </div>
+
+      <button id="submit" class="btn btn-info float-right roboto">Create</button>
+      </form>
     </div>
   </div>
+</div>
 
-{{!-- 
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <h3>Snippets:</h3>
-        <ul id="snippet-list" class="list-group">
-          {{#each snippets}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="snippet/{{this.id}}">{{this.title}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
-      </div>
+{{!--
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h3>Snippets:</h3>
+      <ul id="snippet-list" class="list-group">
+        {{#each snippets}}
+        <li data-id="{{this.id}}" class="list-group-item">
+          <a href="snippet/{{this.id}}">{{this.title}}</a>
+          <button class="btn btn-danger float-right delete">ｘ</button>
+        </li>
+        {{/each}}
+      </ul>
     </div>
   </div>
+</div>
 </div> --}}
 
 
