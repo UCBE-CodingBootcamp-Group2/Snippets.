@@ -44,6 +44,14 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/test", isAuthenticated, function(req, res) {
+    db.Snippet.findAll({}).then(function(dbSnippets) {
+      res.render("test", {
+        snippets: dbSnippets
+      });
+    });
+  });
+
   app.get("/newsnippet", isAuthenticated, function(req, res) {
     db.Snippet.findAll({}).then(function(dbSnippets) {
       res.render("newsnippet", {
