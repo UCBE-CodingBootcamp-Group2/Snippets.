@@ -28,6 +28,7 @@
           {{#each snippets}}
           <li data-id="{{this.id}}" class="list-group-item">
             <a href="snippet/{{this.id}}">{{this.title}}</a>
+            <a href="snippet/update/{{this.id}}"><button class="btn btn-danger float-right">Update</button></a>
             <button class="btn btn-danger float-right delete">ｘ</button>
           </li>
           {{/each}}
