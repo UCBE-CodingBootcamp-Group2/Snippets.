@@ -6,7 +6,7 @@
         <div class="container">
           <div class="row">
             <div class="col">
-              <h1 class="display-3" id="greeting">Look up or add a snippet:</h1>
+              <h1 class="display-3" id="greeting">Look up or Add a Snippet</h1>
             </div>
           </div>
           {{!-- insert rows: row 1, search form --}}
@@ -15,7 +15,7 @@
               <div class="col-md-12 form-row">
                 <div class="col-md-3">
                   <select class="custom-select form-control-lg my-3 h6" id="snippet-category">
-                    <option selected value="">Uncategorized</option>
+                    <option selected value="*">All</option>
                     <option value="HTML">HTML</option>
                     <option value="CSS">CSS</option>
                     <option value="Javascript">Javascript</option>
@@ -25,13 +25,14 @@
                     <option value="Express">Express</option>
                     <option value="Handlebars">Handlebars</option>
                     <option value="Sequalize">Sequalize</option>
+                    <option value="Uncategorized">Uncategorized</option>
                   </select>
                 </div>
                 <div class="col-md-7">
-                  <input type="text" class="form-control-lg my-3 btn-block" type="search" id="search" placeholder="Search" aria-label="Search">
+                  <input type="text" class="form-control-lg my-3 btn-block" type="search" id="search-params" placeholder="Search" aria-label="Search">
                 </div>
                 <div class="col-md-2">
-                  <button class="btn-lg btn-block btn-danger my-3" type="submit"><i class="fas fa-search"></i></button>
+                  <button class="btn-lg btn-block btn-danger my-3 ml-2" type="submit" id="search"><i class="fas fa-search"></i></button>
                 </div>
               </div>
             </form>
@@ -39,14 +40,9 @@
 
           {{!-- row 2 buttons with adding new snippets --}}
           <div class="row mt-3">
-            <div class="col-md-6"><a href="/newsnippet">
-                <button type="button" class="btn btn-info btn-lg btn-block add-buttons"><i class="fas fa-plus"></i>&nbsp;&nbsp;New
+            <div class="col-md-12"><a href="/newsnippet">
+                <button type="button" class="btn btn-info btn-lg btn-block add-buttons py-3"><i class="fas fa-plus"></i>&nbsp;&nbsp;New
                   Snippet</button></a>
-            </div>
-            <div class="col-md-6"><a href="/categories">
-                <button type="button" class="btn btn-info btn-lg btn-block add-buttons" data-toggle="modal" data-target="#newCategory"><i
-                    class="far fa-edit"></i>&nbsp;&nbsp;Edit Categories</button>
-              </a>
             </div>
           </div>
         </div>

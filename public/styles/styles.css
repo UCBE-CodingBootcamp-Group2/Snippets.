@@ -17,17 +17,18 @@ a:hover {
 }
 
 .gbackground {
-  background: #606c88; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
+  background-color: #606c88; /* fallback for old browsers */
+  background-color: -webkit-linear-gradient(
     to bottom,
     #606c88,
     #3f4c6b
   ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
+  background-color: linear-gradient(
     to bottom,
     #606c88,
     #3f4c6b
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-image: url("../imgs/computer_1920.png");
 }
 
 #greeting {
@@ -102,11 +103,10 @@ a:hover {
 }
 
 #username {
-  font-weight: bold;
-  color: grey;
+  color: #696969;
   font-family: "Roboto", sans-serif;
   text-align: right;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 #logo {
