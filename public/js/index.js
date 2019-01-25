@@ -23,10 +23,10 @@ var API = {
       data: JSON.stringify(snippet)
     });
   },
-  updateSnippet: function(id) {
+  updateSnippet: function(id, snippet) {
     return $.ajax({
       type: "PUT",
-      url: "api/snippets/" + id,
+      url: "/api/snippets/" + id,
       data: JSON.stringify(snippet)
     });
   },
@@ -117,9 +117,7 @@ var handleDeleteBtnClick = function() {
 // Update the snippet in the db and refresh the list
 var handleUpdateBtnClick = function() {
   event.preventDefault();
-
-  var idToUpdate = $(this).attr("data-name");
-
+  var idToUpdate = $(this).attr("data-id");
   var snippet = {
     title: $snippetTitle.val().trim(),
     code: $snippetCode.val().trim(),
@@ -132,7 +130,7 @@ var handleUpdateBtnClick = function() {
     return;
   }
 
-  API.updateSnippet(idToUpdate).then(function() {
+  API.updateSnippet(idToUpdate, snippet).then(function() {
     refreshSnippets();
   });
 
