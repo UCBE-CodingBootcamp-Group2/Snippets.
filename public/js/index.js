@@ -23,6 +23,13 @@ var API = {
       data: JSON.stringify(snippet)
     });
   },
+  updateSnippet: function(id) {
+    return $.ajax({
+      type: "PUT",
+      url: "api/snippets/" + id,
+      data: JSON.stringify(snippet)
+    });
+  },
   getSnippets: function() {
     return $.ajax({
       url: "api/snippets",
@@ -64,6 +71,7 @@ var refreshSnippets = function() {
     $snippetList.empty();
     $snippetList.append($snippets);
   });
+  location.reload();
 };
 
 // handleFormSubmit is called whenever we submit a new snippet
@@ -105,6 +113,36 @@ var handleDeleteBtnClick = function() {
   });
 };
 
-// Add event listeners to the submit and delete buttons
+// handleUpdateBtnClick is called when an snippet's update button is clicked
+// Update the snippet in the db and refresh the list
+var handleUpdateBtnClick = function() {
+  event.preventDefault();
+
+  var idToUpdate = $(this).attr("data-name");
+
+  var snippet = {
+    title: $snippetTitle.val().trim(),
+    code: $snippetCode.val().trim(),
+    comment: $snippetComment.val().trim(),
+    category: $snippetCategory.val().trim()
+  };
+
+  if (!(snippet.title && snippet.code && snippet.comment && snippet.category)) {
+    alert("You must input something into all fields!");
+    return;
+  }
+
+  API.updateSnippet(idToUpdate).then(function() {
+    refreshSnippets();
+  });
+
+  $snippetTitle.val("");
+  $snippetCode.val("");
+  $snippetComment.val("");
+  $snippetCategory.val("");
+};
+
+// Add event listeners to the submit, delete, and update buttons
 $submitBtn.on("click", handleFormSubmit);
 $snippetList.on("click", ".delete", handleDeleteBtnClick);
+$snippetList.on("click", ".update", handleUpdateBtnClick);
