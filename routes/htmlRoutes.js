@@ -75,6 +75,16 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/snippet/update/:id", function(req, res) {
+    db.Snippet.findOne({ where: { id: req.params.id } }).then(function(
+      dbSnippets
+    ) {
+      res.render("updatesnippet", {
+        snippet: dbSnippets
+      });
+    });
+  });
+
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
