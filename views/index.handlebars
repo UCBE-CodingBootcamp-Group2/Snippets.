@@ -6,46 +6,43 @@
         <div class="container">
           <div class="row">
             <div class="col">
-              <h1 class="display-3" id="greeting">Look up or add a snippet:</h1>
+              <h1 class="display-3" id="greeting">Look up or Add a Snippet</h1>
             </div>
           </div>
-          {{!-- insert rows: row 1, search bar with dropdown --}}
+          {{!-- insert rows: row 1, search form --}}
           <div class="row">
-            <form class="col-md-12">
-              <div class="form-row">
+            <form class="w-100">
+              <div class="col-md-12 form-row">
                 <div class="col-md-3">
-                  <div class="dropdown">
-                    <button class="btn-lg btn-light btn-block dropdown-toggle my-3 h6" type="button" id="dropdown"
-                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      All Categories
-                    </button>
-                    {{!-- handlebars: loop thru categories array and create link for each --}}
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item h5" href="/">Action</a>
-                      <a class="dropdown-item h5" href="/">Another action</a>
-                      <a class="dropdown-item h5" href="/">Something else here</a>
-                    </div>
-                    {{!-- end loop --}}
-                  </div>
+                  <select class="custom-select form-control-lg my-3 h6" id="snippet-category">
+                    <option selected value="*">All</option>
+                    <option value="HTML">HTML</option>
+                    <option value="CSS">CSS</option>
+                    <option value="Javascript">Javascript</option>
+                    <option value="jQuery">jQuery</option>
+                    <option value="Node">Node</option>
+                    <option value="SQL">SQL</option>
+                    <option value="Express">Express</option>
+                    <option value="Handlebars">Handlebars</option>
+                    <option value="Sequalize">Sequalize</option>
+                    <option value="Uncategorized">Uncategorized</option>
+                  </select>
                 </div>
                 <div class="col-md-7">
-                  <input class="form-control-lg my-3 btn-block" type="search" placeholder="Search" aria-label="Search">
+                  <input type="text" class="form-control-lg my-3 btn-block" type="search" id="search-params" placeholder="Search" aria-label="Search">
                 </div>
                 <div class="col-md-2">
-                  <button class="btn-lg btn-block btn-danger my-3" type="submit"><i class="fas fa-search"></i></button>
+                  <button class="btn-lg btn-block btn-danger my-3 ml-2" type="submit" id="search"><i class="fas fa-search"></i></button>
                 </div>
               </div>
             </form>
           </div>
+
           {{!-- row 2 buttons with adding new snippets --}}
           <div class="row mt-3">
-            <div class="col-md-6"><a href="/newsnippet">
-                <button type="button" class="btn btn-info btn-lg btn-block add-buttons"><i class="fas fa-plus"></i>&nbsp;&nbsp;New
+            <div class="col-md-12"><a href="/newsnippet">
+                <button type="button" class="btn btn-info btn-lg btn-block add-buttons py-3"><i class="fas fa-plus"></i>&nbsp;&nbsp;New
                   Snippet</button></a>
-            </div>
-            <div class="col-md-6"><a href="/categories">
-              <button type="button" class="btn btn-info btn-lg btn-block add-buttons" data-toggle="modal" data-target="#newCategory"><i class="far fa-edit"></i>&nbsp;&nbsp;Edit Categories</button>
-              </a>
             </div>
           </div>
         </div>
@@ -56,29 +53,12 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12" id="snippets">
-          {{!-- card example, want handlebars to loop thru for this--}}
-          {{!-- 
-          <div class="card border-secondary mb-3 rounded-0">
-            <div class="card-header">
-              <button type="button" class="btn btn-sm c-button" disabled>Sequalize</button>
-              <ul class="list-inline float-right m-0">
-                <li class="list-inline-item"><button class="btn btn-secondary btn-sm rounded-0">Update</button></li>
-                <li class="list-inline-item"><button class="btn btn-danger btn-sm rounded-0"><i class="fas fa-times"></i></button></li>
-              </ul>
-            </div>
-            <div class="card-body text-secondary">
-              <h5 class="card-title">Note about the snippet or title</h5>
-              <p class="card-text">https://www.youtube.com/watch?v=QmFu_Z_1Dl0&t=42s</p>
-            </div>
-          </div>
-           --}}
-          {{!-- end examples --}}
 
           <ul id="snippet-list" class="list-group">
             {{#each snippets}}
             <div class="card border-secondary mb-3 rounded-0">
               <div class="card-header">
-                <button type="button" class="btn btn-sm c-button" disabled>Sequalize</button>
+                <button type="button" class="btn btn-sm c-button" disabled>{{this.category}}</button>
                 <ul class="list-inline float-right m-0">
                   <a href="snippet/update/{{this.id}}"><li class="list-inline-item"><button class="btn btn-secondary btn-sm rounded-0">Update</button></li></a>
                   <li class="list-inline-item"><button class="btn btn-danger btn-sm rounded-0"><i class="fas fa-times"></i></button></li>
@@ -88,7 +68,7 @@
                 <h5 class="card-title">
                   <a href="snippet/{{this.id}}">{{this.title}}</a>
                 </h5>
-                <pre class="prettyprint">{{this.code}}</pre>
+                <pre class="prettyprint p-2">{{this.code}}</pre>
               </div>
             </div>
             {{/each}}
@@ -98,8 +78,6 @@
       </div>
     </div>
   </div>
-
-
 </div>
 
 <script src="/js/index.js"></script>
