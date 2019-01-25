@@ -69,7 +69,7 @@ module.exports = function(app) {
   });
 
   // Load snippet page and pass in an snippet by id
-  app.get("/snippet/:id", function(req, res) {
+  app.get("/snippet/:id", isAuthenticated, function(req, res) {
     db.Snippet.findOne({ where: { id: req.params.id } }).then(function(
       dbSnippets
     ) {
@@ -79,7 +79,7 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/snippet/update/:id", function(req, res) {
+  app.get("/snippet/update/:id", isAuthenticated, function(req, res) {
     db.Snippet.findOne({ where: { id: req.params.id } }).then(function(
       dbSnippets
     ) {
