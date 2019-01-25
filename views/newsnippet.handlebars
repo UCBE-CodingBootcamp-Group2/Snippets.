@@ -1,6 +1,5 @@
 <div class="my-4">
-
-  <div class="container border bg-light shadow-sm p-5">
+  <div class="container border bg-light shadow-sm px-5 pt-5">
     <div class="row">
       <div class="col-12">
         <h1 class="mod-title">Create a New Snippet</h1>
@@ -11,12 +10,13 @@
             <input type="title" id="snippet-title" class="form-control rounded-0" aria-describedby="snippet-title"
               placeholder="Enter Snippet Title">
           </div>
+
           {{!-- Category --}}
           <div class="form-group">
             <label for="snippet-category" class="roboto mr-4">Category</label>
 
             <select class="custom-select" id="snippet-category">
-              <option selected value="Uncategorized">None</option>
+              <option selected value="Uncategorized">Uncategorized</option>
               <option value="HTML">HTML</option>
               <option value="CSS">CSS</option>
               <option value="Javascript">Javascript</option>
@@ -29,24 +29,25 @@
             </select>
           </div>
 
-</div>
-      </div>
+          {{!-- Code --}}
+          <div class="form-group">
+            <label for="snippet-code" class="roboto">Code</label>
+            <textarea class="form-control rounded-0" id="snippet-code" aria-describedby="snippet-code" placeholder="Enter Code Snippet"
+              style="height: 275px;"></textarea>
+          </div>
 
-      {{!-- Code --}}
-      <div class="form-group">
-        <label for="snippet-code" class="roboto">Code</label>
-        <textarea class="form-control rounded-0" id="snippet-code" aria-describedby="snippet-code" placeholder="Enter Code Snippet"
-          style="height: 275px;"></textarea>
-      </div>
+          {{!-- Comment --}}
+          <div class="form-group">
+            <label for="snippet-comment" class="roboto">Comment</label>
+            <textarea class="form-control rounded-0" id="snippet-comment" aria-describedby="snippet-comment"
+              placeholder="Enter comment"></textarea>
+          </div>
 
-      {{!-- Comment --}}
-      <div class="form-group">
-        <label for="snippet-comment" class="roboto">Comment</label>
-        <textarea class="form-control rounded-0" id="snippet-comment" aria-describedby="snippet-comment" placeholder="Enter comment"></textarea>
-      </div>
+          {{!-- Button --}}
+          <button id="submit" class="btn btn-info float-right roboto">Create</button>
 
-      <button id="submit" class="btn btn-info float-right roboto">Create</button>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
 </div>
