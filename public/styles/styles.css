@@ -95,3 +95,20 @@ a:hover {
 .custom-select {
   height: calc(2.875rem + 2px);
 }
+
+.hidden
+{
+ display:none;   
+}
+
+#username {
+  font-weight: bold;
+  color: grey;
+  font-family: "Roboto", sans-serif;
+  text-align: right;
+  font-size: 1.2rem;
+}
+
+#logo {
+  text-align: left;
+}
