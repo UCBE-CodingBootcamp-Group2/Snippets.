@@ -53,6 +53,17 @@ module.exports = function(app) {
     });
   });
 
+  // Get one snippet
+  app.get("/api/snippets/:id", function(req, res) {
+    db.Snippet.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbSnippet) {
+      res.json(dbSnippet);
+    });
+  });
+
   // Get route for returning posts of a specific category
   app.get("/api/snippets/category/:category", function(req, res) {
     db.Snippet.findAll({
