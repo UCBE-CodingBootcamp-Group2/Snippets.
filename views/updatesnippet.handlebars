@@ -4,6 +4,8 @@
       <div class="card mt-4">
         <div class="card-body">
           <h5 class="card-title">Snippet</h5>
+          <ul id="snippet-list" class="list-group">
+          <li>
           <p>
             <strong>ID</strong>: {{snippet.id}}</p>
           <p>
@@ -16,7 +18,9 @@
           <p>
             <strong>Category:</strong><input id="snippet-category" type="text" value="{{snippet.category}}"></p>
             <a href="/">← Back To Home</a>
-            <button class="btn btn-danger float-right update">Update</button>
+            <button data-id="{{snippet.id}}" class="btn btn-danger float-right update">Update</button>
+            </li>
+            </ul>
         </div>
       </div>
     </div>
