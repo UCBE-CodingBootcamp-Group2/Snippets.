@@ -64,8 +64,8 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/categories", isAuthenticated, function(req, res) {
-    res.render("categories");
+  app.get("/categories/:categories", isAuthenticated, function(req, res) {
+    res.render("index");
   });
 
   // Load snippet page and pass in an snippet by id
