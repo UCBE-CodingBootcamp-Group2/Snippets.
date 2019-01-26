@@ -89,6 +89,24 @@ module.exports = function(app) {
     });
   });
 
+  //For search bar functionality
+  app.get("/search", function(req, res) {
+
+    var category = req.query.category;
+    var search = req.query.term;
+
+    db.Snippet.findAll({
+      where: {
+        category: category,
+        title: { like: `%${search}%`}
+      }
+    }).then(function(dbSnippets) {
+      res.render("index", {
+        snippets: dbSnippets
+      });
+    });
+  });
+
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
