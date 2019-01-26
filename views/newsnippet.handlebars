@@ -1,33 +1,75 @@
-<div id="home">
-  <div class="container">
+<div class="my-4">
+  <div class="container border bg-light shadow-sm px-5 pt-5">
     <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
+      <div class="col-12">
+        <h1 class="mod-title">Create a New Snippet</h1>
         <form class="clearfix mb-4" action="POST">
+          {{!-- Title --}}
           <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+            <label for="snippet-title" class="roboto">Title</label>
+            <input type="title" id="snippet-title" class="form-control rounded-0" aria-describedby="snippet-title"
+              placeholder="Enter Snippet Title">
           </div>
+
+          {{!-- Category --}}
           <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
+            <label for="snippet-category" class="roboto mr-4">Category</label>
+
+            <select class="custom-select" id="snippet-category">
+              <option selected value="Uncategorized">Uncategorized</option>
+              <option value="HTML">HTML</option>
+              <option value="CSS">CSS</option>
+              <option value="Javascript">Javascript</option>
+              <option value="jQuery">jQuery</option>
+              <option value="Node">Node</option>
+              <option value="SQL">SQL</option>
+              <option value="Express">Express</option>
+              <option value="Handlebars">Handlebars</option>
+              <option value="Sequalize">Sequalize</option>
+            </select>
           </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
+
+          {{!-- Code --}}
+          <div class="form-group">
+            <label for="snippet-code" class="roboto">Code</label>
+            <textarea class="form-control rounded-0" id="snippet-code" aria-describedby="snippet-code" placeholder="Enter Code Snippet"
+              style="height: 275px;"></textarea>
+          </div>
+
+          {{!-- Comment --}}
+          <div class="form-group">
+            <label for="snippet-comment" class="roboto">Comment</label>
+            <textarea class="form-control rounded-0" id="snippet-comment" aria-describedby="snippet-comment"
+              placeholder="Enter comment"></textarea>
+          </div>
+
+          {{!-- Button --}}
+          <button id="submit" class="btn btn-info float-right roboto">Create</button>
+
         </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
       </div>
     </div>
   </div>
 </div>
+
+{{!--
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h3>Snippets:</h3>
+      <ul id="snippet-list" class="list-group">
+        {{#each snippets}}
+        <li data-id="{{this.id}}" class="list-group-item">
+          <a href="snippet/{{this.id}}">{{this.title}}</a>
+          <button class="btn btn-danger float-right delete">ｘ</button>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>
+</div> --}}
+
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>

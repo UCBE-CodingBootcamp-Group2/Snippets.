@@ -23,68 +23,74 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/signup.html"));
   });
 
-  // Load index page
-  app.get("/home", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
-      });
-    });
-  });
-
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/members");
+      res.redirect("/home");
     }
     res.sendFile(path.join(__dirname, "../public/login.html"));
+  });
+
+  app.get("/userexists", function(req, res) {
+    res.render("userexists");
   });
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be
   // redirected to the signup page
-  app.get("/members", isAuthenticated, function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/members.html"));
 
-    app.get("/newsnippet", function(req, res) {
-      db.Example.findAll({}).then(function(dbExamples) {
-        res.render("newsnippet", {
-          examples: dbExamples
-        });
+  // Load index page if authenticated
+  app.get("/home", isAuthenticated, function(req, res) {
+    db.Snippet.findAll({}).then(function(dbSnippets) {
+      res.render("index", {
+        snippets: dbSnippets
       });
     });
+  });
 
-    app.get("/newcategory", function(req, res) {
-      db.Example.findAll({}).then(function(dbExamples) {
-        res.render("newcategory", {
-          examples: dbExamples
-        });
+  app.get("/test", isAuthenticated, function(req, res) {
+    db.Snippet.findAll({}).then(function(dbSnippets) {
+      res.render("test", {
+        snippets: dbSnippets
       });
     });
+  });
 
-    app.get("/newtag", function(req, res) {
-      db.Example.findAll({}).then(function(dbExamples) {
-        res.render("newtag", {
-          examples: dbExamples
-        });
+  app.get("/newsnippet", isAuthenticated, function(req, res) {
+    db.Snippet.findAll({}).then(function(dbSnippets) {
+      res.render("newsnippet", {
+        snippets: dbSnippets
       });
     });
+  });
 
-    // Load example page and pass in an example by id
-    app.get("/example/:id", function(req, res) {
-      db.Example.findOne({ where: { id: req.params.id } }).then(function(
-        dbExamples
-      ) {
-        res.render("example", {
-          example: dbExamples
-        });
+  app.get("/categories", isAuthenticated, function(req, res) {
+    res.render("categories");
+  });
+
+  // Load snippet page and pass in an snippet by id
+  app.get("/snippet/:id", isAuthenticated, function(req, res) {
+    db.Snippet.findOne({ where: { id: req.params.id } }).then(function(
+      dbSnippets
+    ) {
+      res.render("snippet", {
+        snippet: dbSnippets
       });
     });
+  });
 
-    // Render 404 page for any unmatched routes
-    app.get("*", function(req, res) {
-      res.render("404");
+  app.get("/snippet/update/:id", isAuthenticated, function(req, res) {
+    db.Snippet.findOne({ where: { id: req.params.id } }).then(function(
+      dbSnippets
+    ) {
+      res.render("updatesnippet", {
+        snippet: dbSnippets
+      });
     });
+  });
+
+  // Render 404 page for any unmatched routes
+  app.get("*", function(req, res) {
+    res.render("404");
   });
 };

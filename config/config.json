@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "ahuilaca",
-    "database": "exampledb",
+    "password": null,
+    "database": "snippetdb",
     "host": "localhost",
     "dialect": "mysql"
   },

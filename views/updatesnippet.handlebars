@@ -1,0 +1,83 @@
+<div class="my-4">
+    <div class="container border bg-light shadow-sm px-5 pt-5">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="mod-title">Update Snippet</h1>
+                <form class="clearfix mb-4" action="PUT">
+                    {{!-- Title --}}
+                    <div class="form-group">
+                        <label for="snippet-title" class="roboto">Title</label>
+                        <input id="snippet-title" type="text" class="form-control rounded-0" aria-describedby="snippet-title"
+                            value="{{snippet.title}}">
+                    </div>
+                    {{!-- Category --}}
+                    <div class="form-group">
+                        <label for="snippet-category" class="roboto mr-4">Category</label>
+
+                        <select class="custom-select" id="snippet-category">
+                            <option selected value="{{snippet.category}}">{{snippet.category}}</option>
+                            <option value="Uncategorized">Uncategorized</option>
+                            <option value="HTML">HTML</option>
+                            <option value="CSS">CSS</option>
+                            <option value="Javascript">Javascript</option>
+                            <option value="jQuery">jQuery</option>
+                            <option value="Node">Node</option>
+                            <option value="SQL">SQL</option>
+                            <option value="Express">Express</option>
+                            <option value="Handlebars">Handlebars</option>
+                            <option value="Sequalize">Sequalize</option>
+                        </select>
+                    </div>
+                    {{!-- Code --}}
+                    <div class="form-group">
+                        <label for="snippet-code" class="roboto">Code</label>
+                        <textarea class="form-control rounded-0" id="snippet-code" aria-describedby="snippet-code" rows="10"
+                            type="text">{{snippet.code}}</textarea>
+                    </div>
+
+                    {{!-- Comment --}}
+                    <div class="form-group">
+                        <label for="snippet-comment" class="roboto">Comment</label>
+                        <textarea class="form-control rounded-0" id="snippet-comment" aria-describedby="snippet-comment"
+                            type="text">{{snippet.comment}}</textarea>
+                    </div>
+
+                    {{!-- Buttons --}}
+                    <div class="form-inline float-right">
+                        <a href="/"><button type="button" class="btn btn-outline-danger roboto mr-4" aria-label="Cancel">Cancel</button></a>
+                        <button id="update" class="btn btn-info float-right roboto update">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- 
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">Snippet</h5>
+                    <p>
+                        <strong>ID</strong>: {{snippet.id}}</p>
+                    <p>
+                        <p>
+                            <strong>Title:</strong><input id="snippet-title" type="text" value="{{snippet.title}}"></p>
+                        <p>
+                            <strong>Code:</strong><input id="snippet-code" type="text" value="{{snippet.code}}"></p>
+                        <p>
+                            <strong>Comment:</strong><input id="snippet-comment" type="text" value="{{snippet.comment}}"></p>
+                        <p>
+                            <strong>Category:</strong><input id="snippet-category" type="text" value="{{snippet.category}}"></p>
+                        <a href="/">← Back To Home</a>
+                        <button class="btn btn-danger float-right update">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> --}}
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
