@@ -4,7 +4,7 @@
 
 form.signup,
 form.login {
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 html,
@@ -52,14 +52,15 @@ a:hover {
 }
 
 .u-button {
-  color: #8B008B;
+  color: #8b008b;
   background-color: #ffffff;
-  border-color: #8B008B;
+  border-color: #8b008b;
 }
 
 #navbar {
   overflow: hidden;
   background-color: #333;
+  z-index: 2000;
 }
 
 .sticky {
@@ -70,9 +71,9 @@ a:hover {
 }
 
 .mod-title {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: bold;
-  text-align: center!important;
+  text-align: center !important;
 }
 
 .modal-content {
@@ -83,7 +84,7 @@ a:hover {
 
 .modal-header {
   border-bottom: none;
-  padding: .5rem;
+  padding: 0.5rem;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   background-color: #ffffff;
@@ -97,9 +98,8 @@ a:hover {
   height: calc(2.875rem + 2px);
 }
 
-.hidden
-{
- display:none;   
+.hidden {
+  display: none;
 }
 
 #username {
@@ -114,7 +114,6 @@ a:hover {
 }
 
 #main_container {
-  max-width: 100%;
   background: #606c88; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to bottom,
@@ -126,6 +125,12 @@ a:hover {
     #606c88,
     #3f4c6b
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  position: fixed !important;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 #col {
@@ -134,14 +139,18 @@ a:hover {
   margin: 0 auto;
 }
 
-#h2 {
-  font-size: 50px;
+#h1 {
   color: white;
   font-weight: bold;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  padding-top: 100px;
 }
 
-#label, #p {
+#label,
+#p {
   font-size: 20px;
   color: white;
   font-weight: bold;
+  font-family: "Roboto", sans-serif;
 }
