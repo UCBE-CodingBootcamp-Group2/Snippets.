@@ -34,12 +34,6 @@ var API = {
       url: "api/snippets/" + id,
       type: "DELETE"
     });
-  },
-  searchSnippets: function(category, title) {
-    return $.ajax({
-      url: "api/snippets/" + `${category}/${title}`,
-      type: "GET"
-    });
   }
 };
 
@@ -122,7 +116,6 @@ var refreshCards = function() {
 
     });
 }
-
 //end CINDY's attempt
 
 // handleFormSubmit is called whenever we submit a new snippet
@@ -162,18 +155,18 @@ var handleDeleteBtnClick = function() {
   });
 };
 
-//handleSearch
-var handleSearch = function() {
-  //select category where title contains XYZ, then refresh Cards
-  let category = $snippetCategory.val().trim();
-  let title = $searchTitle.val().trim();
+//handleSearch - dont need anymore
+// var handleSearch = function() {
+//   //select category where title contains XYZ, then refresh Cards
+//   let category = $snippetCategory.val().trim();
+//   let title = $searchTitle.val().trim();
 
-  API.searchSnippets(category, title).then(function() {
-    refreshCards();
-  })
-}
+//   API.searchSnippets(category, title).then(function() {
+//     refreshCards();
+//   })
+// }
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $snippetList.on("click", ".delete", handleDeleteBtnClick);
-$searchBtn.on("click", handleSearch);
+// $searchBtn.on("click", handleSearch);
