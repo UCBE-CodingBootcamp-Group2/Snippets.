@@ -5,6 +5,7 @@ var $snippetComment = $("#snippet-comment");
 var $snippetCategory = $("#snippet-category");
 
 var $submitBtn = $("#submit");
+var $confirmBtn = $("#confirm");
 var $snippetList = $("#snippet-list");
 
 jQuery.fn.prettify = function() {
@@ -33,6 +34,13 @@ var API = {
     return $.ajax({
       url: "api/snippets/" + id,
       type: "DELETE"
+    });
+  },
+  updateSnippet: function(id, snippet) {
+    return $.ajax({
+      url: "api/update/" + id,
+      type: "POST",
+      data: JSON.stringify(snippet)
     });
   }
 };
@@ -66,6 +74,13 @@ var refreshSnippets = function() {
   });
 };
 
+//Post onsubmit actions for update page
+var refreshUpdate = function() {
+  API.getSnippets().then(function() {
+    location.reload();
+  });
+};
+
 // handleFormSubmit is called whenever we submit a new snippet
 // Save the new snippet to the db and refresh the list
 var handleFormSubmit = function(event) {
@@ -93,6 +108,29 @@ var handleFormSubmit = function(event) {
   $snippetCategory.val("");
 };
 
+var handleConfirmButtonClick = function(event) {
+  event.preventDefault();
+
+  var pathArray = window.location.pathname.split("/");
+  var idToUpdate = pathArray.slice(3, 4);
+
+  var snippet = {
+    title: $snippetTitle.val().trim(),
+    code: $snippetCode.val().trim(),
+    comment: $snippetComment.val().trim(),
+    category: $snippetCategory.val().trim()
+  };
+
+  if (!(snippet.title && snippet.code && snippet.comment && snippet.category)) {
+    alert("You must input something into all fields!");
+    return;
+  }
+
+  API.updateSnippet(idToUpdate, snippet).then(function() {
+    refreshUpdate();
+  });
+};
+
 // handleDeleteBtnClick is called when an snippet's delete button is clicked
 // Remove the snippet from the db and refresh the list
 var handleDeleteBtnClick = function() {
@@ -108,3 +146,4 @@ var handleDeleteBtnClick = function() {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $snippetList.on("click", ".delete", handleDeleteBtnClick);
+$confirmBtn.on("click", handleConfirmButtonClick);

@@ -92,8 +92,8 @@ module.exports = function(app) {
   });
 
   //update snippet by id
-  app.put("/api/snippets", function(req, res) {
-    db.Post.update(req.body, {
+  app.put("update/api/update:id", function(req, res) {
+    db.Snippet.update(req.body, {
       where: {
         id: req.body.id
       }
