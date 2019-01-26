@@ -92,10 +92,10 @@ module.exports = function(app) {
   });
 
   //update snippet by id
-  app.put("update/api/update:id", function(req, res) {
-    db.Snippet.update(req.body, {
+  app.put("/api/update:id", function(req, res) {
+    db.Snippet.update(req.params, {
       where: {
-        id: req.body.id
+        id: req.params.id
       }
     }).then(function(dbUpdate) {
       res.json(dbUpdate);
