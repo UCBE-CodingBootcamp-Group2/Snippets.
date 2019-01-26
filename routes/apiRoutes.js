@@ -92,13 +92,14 @@ module.exports = function(app) {
   });
 
   //update snippet by id
-  app.put("/api/update:id", function(req, res) {
-    db.Snippet.update(req.params, {
+  app.put("/api/update/:id", function(req, res) {
+    db.Snippet.update(req.body, {
       where: {
         id: req.params.id
       }
     }).then(function(dbUpdate) {
       res.json(dbUpdate);
+      console.log(req.body);
     });
   });
 };

@@ -11,11 +11,17 @@ jQuery.fn.prettify = function() {
 };
 
 var API = {
-  updateSnippet: function(id, snippet) {
+  getSnippets: function() {
     return $.ajax({
-      url: "api/update/" + id,
+      url: "api/snippets",
+      type: "GET"
+    });
+  },
+  updateSnippet: function(idToUpdate, snippet) {
+    return $.ajax({
+      url: "/api/update/" + idToUpdate,
       type: "PUT",
-      data: JSON.stringify(snippet)
+      data: snippet
     });
   }
 };
@@ -23,7 +29,7 @@ var API = {
 //Post onsubmit actions for update page
 var refreshUpdate = function() {
   API.getSnippets().then(function() {
-    location.reload();
+    console.log("yes?");
   });
 };
 
@@ -31,10 +37,10 @@ var handleConfirmButtonClick = function(event) {
   event.preventDefault();
 
   var pathArray = window.location.pathname.split("/");
-  var idToUpdate = pathArray.slice(3, 4);
+  var idToUpdate = pathArray.slice(3, 4).toString();
+  console.log(idToUpdate);
 
   var snippet = {
-    id: idToUpdate,
     title: $snippetTitle.val().trim(),
     code: $snippetCode.val().trim(),
     comment: $snippetComment.val().trim(),
