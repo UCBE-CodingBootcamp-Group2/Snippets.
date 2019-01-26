@@ -70,7 +70,7 @@ a:hover {
 
 /*=============== Login / Sign up / Members Pages ==================*/
 
-.container {
+#main_container {
   max-width: 100%;
   background: #606c88; /* fallback for old browsers */
   background: -webkit-linear-gradient(
@@ -91,24 +91,25 @@ a:hover {
   margin: 0 auto;
 }
 
-h2 {
+#h2 {
   font-size: 50px;
   color: white;
   font-weight: bold;
 }
 
-label, p {
+#label, #p {
   font-size: 20px;
   color: white;
   font-weight: bold;
 }
 
-#buttons {
+/* #buttons {
   max-width: 100%;
+  color: #17a2b8;
+  border-color: #17a2b8;
 }
 
 a {
   color: #17a2b8;
-  /* background-color: #17a2b8; */
   border-color: #17a2b8;
-}
+} */
