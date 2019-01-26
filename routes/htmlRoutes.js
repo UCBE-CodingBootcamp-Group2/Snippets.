@@ -90,7 +90,7 @@ module.exports = function(app) {
   });
 
   //For search bar functionality
-  app.get("/search", function(req, res) {
+  app.get("/search", isAuthenticated, function(req, res) {
 
     var category = req.query.category;
     var search = req.query.term;
