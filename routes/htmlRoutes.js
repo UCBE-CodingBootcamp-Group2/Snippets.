@@ -68,6 +68,35 @@ module.exports = function(app) {
     res.render("categories");
   });
 
+  //For search bar functionality
+  app.get("/search", isAuthenticated, function(req, res) {
+    var category = req.query.category;
+    var search = req.query.term;
+
+    if (category === "") {
+      db.Snippet.findAll({
+        where: {
+          title: { like: `%${search}%` }
+        }
+      }).then(function(dbSnippets) {
+        res.render("index", {
+          snippets: dbSnippets
+        });
+      });
+    } else {
+      db.Snippet.findAll({
+        where: {
+          category: category,
+          title: { like: `%${search}%` }
+        }
+      }).then(function(dbSnippets) {
+        res.render("index", {
+          snippets: dbSnippets
+        });
+      });
+    }
+  });
+
   // Load snippet page and pass in an snippet by id
   app.get("/snippet/:id", isAuthenticated, function(req, res) {
     db.Snippet.findOne({ where: { id: req.params.id } }).then(function(

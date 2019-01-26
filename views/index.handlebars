@@ -11,11 +11,11 @@
           </div>
           {{!-- insert rows: row 1, search form --}}
           <div class="row">
-            <form class="w-100">
+            <form class="w-100" action="search" type="GET">
               <div class="col-md-12 form-row">
                 <div class="col-md-3">
-                  <select class="custom-select form-control-lg my-3 h6" id="snippet-category">
-                    <option selected value="*">All</option>
+                  <select class="custom-select form-control-lg my-3 h6" id="snippet-category" name="category">
+                    <option selected value="">All</option>
                     <option value="HTML">HTML</option>
                     <option value="CSS">CSS</option>
                     <option value="Javascript">Javascript</option>
@@ -29,7 +29,7 @@
                   </select>
                 </div>
                 <div class="col-md-7">
-                  <input type="text" class="form-control-lg my-3 btn-block" type="search" id="search-params" placeholder="Search" aria-label="Search">
+                  <input type="text" class="form-control-lg my-3 btn-block" id="search-params" name="term" placeholder="Search" aria-label="Search">
                 </div>
                 <div class="col-md-2">
                   <button class="btn-lg btn-block btn-danger my-3 ml-2" type="submit" id="search"><i class="fas fa-search"></i></button>
