@@ -96,9 +96,7 @@ var handleFormSubmit = function(event) {
 // handleDeleteBtnClick is called when an snippet's delete button is clicked
 // Remove the snippet from the db and refresh the list
 var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
+  var idToDelete = $(this).attr("data-id");
 
   API.deleteSnippet(idToDelete).then(function() {
     refreshSnippets();
