@@ -80,7 +80,7 @@ var deleteLi = $("<li>").addClass("list-inline-item");
 var deletebtn = $("<button>").addClass("btn btn-danger btn-sm rounded-0 ml-2 delete").attr("data-id", data.id).html(`<i class="fas fa-times"></i>`);
 var newSnippetBody = $("<div>").addClass("card-body text-secondary");
 var cardTitle = $("<h5>").addClass("card-title");
-var title = $("<a>").attr("href", `snippet/${data.id}`).text(data.title);
+var title = $("<a>").attr("href", `snippet/update/${data.id}`).text(data.title);
 var code = $("<pre>").addClass("prettyprint p-2").text(data.code);
 
 updateLi.append(updatebtn);

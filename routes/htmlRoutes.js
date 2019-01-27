@@ -20,6 +20,14 @@ module.exports = function(app) {
     if (req.user) {
       res.redirect("/home");
     }
+    res.sendFile(path.join(__dirname, "../public/root.html"));
+  });
+
+  app.get("/signup", function(req, res) {
+    // If the user already has an account send them to the members page
+    if (req.user) {
+      res.redirect("/home");
+    }
     res.sendFile(path.join(__dirname, "../public/signup.html"));
   });
 
@@ -66,6 +74,35 @@ module.exports = function(app) {
 
   app.get("/categories", isAuthenticated, function(req, res) {
     res.render("categories");
+  });
+
+  //For search bar functionality
+  app.get("/search", isAuthenticated, function(req, res) {
+    var category = req.query.category;
+    var search = req.query.term;
+
+    if (category === "") {
+      db.Snippet.findAll({
+        where: {
+          title: { like: `%${search}%` }
+        }
+      }).then(function(dbSnippets) {
+        res.render("index", {
+          snippets: dbSnippets
+        });
+      });
+    } else {
+      db.Snippet.findAll({
+        where: {
+          category: category,
+          title: { like: `%${search}%` }
+        }
+      }).then(function(dbSnippets) {
+        res.render("index", {
+          snippets: dbSnippets
+        });
+      });
+    }
   });
 
   // Load snippet page and pass in an snippet by id

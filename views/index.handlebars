@@ -11,11 +11,11 @@
           </div>
           {{!-- insert rows: row 1, search form --}}
           <div class="row">
-            <form class="w-100">
+            <form class="w-100" action="search" type="GET">
               <div class="col-md-12 form-row">
                 <div class="col-md-3">
-                  <select class="custom-select form-control-lg my-3 h6" id="snippet-category">
-                    <option selected value="*">All</option>
+                  <select class="custom-select form-control-lg my-3 h6" id="snippet-category" name="category">
+                    <option selected value="">All</option>
                     <option value="HTML">HTML</option>
                     <option value="CSS">CSS</option>
                     <option value="Javascript">Javascript</option>
@@ -29,7 +29,7 @@
                   </select>
                 </div>
                 <div class="col-md-7">
-                  <input type="text" class="form-control-lg my-3 btn-block" type="search" id="search-params" placeholder="Search" aria-label="Search">
+                  <input type="text" class="form-control-lg my-3 btn-block" id="search-params" name="term" placeholder="Search" aria-label="Search">
                 </div>
                 <div class="col-md-2">
                   <button class="btn-lg btn-block btn-danger my-3 ml-2" type="submit" id="search"><i class="fas fa-search"></i></button>
@@ -61,12 +61,12 @@
                 <button type="button" class="btn btn-sm c-button" disabled>{{this.category}}</button>
                 <ul class="list-inline float-right">
                   <a href="snippet/update/{{this.id}}"><li class="list-inline-item"><button class="btn btn-secondary btn-sm rounded-0">Update</button></li></a>
-                  <li class="list-inline-item"><button class="btn btn-danger btn-sm rounded-0 ml-2 delete" data-id="{{this.id}}"><i class="fas fa-times"></i></button></li>
+                  <li class="list-inline-item"><button class="btn btn-danger btn-sm rounded-0 ml-1 delete" data-id="{{this.id}}"><i class="fas fa-times"></i></button></li>
                 </ul>
               </div>
               <div class="card-body text-secondary">
                 <h5 class="card-title">
-                  <a href="snippet/{{this.id}}">{{this.title}}</a>
+                  <a href="snippet/update/{{this.id}}">{{this.title}}</a>
                 </h5>
                 <pre class="prettyprint p-2">{{this.code}}</pre>
               </div>
